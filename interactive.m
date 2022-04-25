@@ -118,6 +118,8 @@ maxamp = xma(2);
 text(sampletimes(end/3),maxamp*0.95,sprintf('Max amp = %.2e counts',maxamp),...
     'fontsize',17,'verticalalignment','top','color','m','interpreter','latex')
 
+plot([sampletimes(1),sampletimes(end)],maxamp*[1 1],'--m','linewidth',1.5)
+
 title('USE CURSOR TO SELECT MINIMUM ON TRACE','fontsize',22,'fontweight','bold')
 
 % Second ginput prompt
@@ -128,6 +130,16 @@ plot([sampletimes(1),sampletimes(end)],minamp*[1 1],'--m','linewidth',1.5)
 
 text(sampletimes(end/3),minamp*0.95,sprintf('Min amp = %.2e counts',minamp),...
     'fontsize',17,'verticalalignment','bottom','color','m','interpreter','latex')
+
+%% for Hannah
+
+% The following will give you the slope between the two points selected
+% using my example code, it doesn't really make sense in my example but
+% this is the way to do it with ginput (the first is the x value and the
+% second is the y value) since ginput outputs a 2 column vector
+
+% (maxamp+minamp)/(xma(1)-xm(1))
+
 
 %% finish up
 title('NOW YOU ARE A SEISMOLOGIST','fontsize',22,'fontweight','bold')
